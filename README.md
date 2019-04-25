@@ -1,8 +1,3 @@
-﻿# Bananu valgymo guide:
-![GitHub Logo](/images/banana.gif)
-## Step 1.
-#### Geriau nekandžiok
-## Step 2.
-#### Kai valgai, nežiūrėk destytojuj į akis
-## Step 3.
-#### Kai valgai, nežiūrėk niekam į akis
+# Build a triangle, pyramid, Romb;
+# Calculator App in the commits;
+
