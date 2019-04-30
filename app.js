@@ -1,3 +1,4 @@
+// Triangle, Pyramid, Romb dynamic creator
 function triangle(number) {
   let triangle = '';
   let star = '*';
@@ -19,16 +20,16 @@ document.querySelector('#buttons').addEventListener('click', (event)=>{
 
   switch (id) {
     case 'triangle':
-    triangle(number);
-    break;
+      triangle(number);
+      break;
     case 'pyramid':
-    pyramid(number, pyramidType);
-    break;
+      pyramid(number, pyramidType);
+      break;
     case 'romb':
-    romb(number);
-    break;
+      romb(number);
+      break;
     default:
-    break;
+      break;
   }
 })
 
@@ -90,3 +91,75 @@ function romb(number) {
   }
   document.querySelector('#output').innerHTML = pyramid;
 }
+//---------------------------------------------------------------
+//Is Pangram validation
+
+var string = "THE quick brown fox jumps over the lazy dog."
+
+function isPangram(string){
+  let alphabet =['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+  'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let lowerString = string.toLowerCase();
+  let correct = true;
+  alphabet.forEach((char)=> {
+    if(!lowerString.includes(char)){
+      correct = false;
+    }
+  })
+  return correct;
+}
+
+isPangram(string);
+//---------------------------------------------------------------
+// Calculator
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+function sub(num1, num2) {
+  return num1 - num2;
+}
+
+function div(num1, num2) {
+  return num1 / num2;
+}
+const mul = (num1, num2) => num1 * num2;
+const mod = (num1, num2) => num1 % num2;
+
+//Function to get user input
+const userInput = (selector)=>{
+  return Number(document.querySelector(selector).value);
+}
+
+document.querySelector('#buttons').addEventListener('click',(event)=>{
+  let buttonName = event.target.name;
+  let result = '';
+
+  if(event.target.tagName == 'BUTTON'){
+    switch (buttonName) {
+      case 'sum':
+        result = sum(userInput("input[name='number1']"), userInput("input[name='number2']"));
+        break;
+      case 'div':
+        result = div(userInput("input[name='number1']"), userInput("input[name='number2']"));
+        break;
+      case 'sub':
+        result = sub(userInput("input[name='number1']"), userInput("input[name='number2']"));
+        break;
+      case 'mul':
+        result = mul(userInput("input[name='number1']"), userInput("input[name='number2']"));
+        break;
+      case 'mod':
+        result = mod(userInput("input[name='number1']"), userInput("input[name='number2']"));
+        break;
+      case 'clear':
+        document.querySelector("input[name='number1']").value = '';
+        document.querySelector("input[name='number2']").value = '';
+        document.querySelector("#result").textContent = '';
+        break;
+      default:
+        break;
+    }
+    document.querySelector('#result').textContent = result;
+  }
+})
